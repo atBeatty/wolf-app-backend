@@ -1,4 +1,4 @@
 class Golfer < ApplicationRecord
-    belongs_to :foursome
+    belongs_to :foursome, optional: true
 
 end

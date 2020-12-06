@@ -10,6 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2020_12_06_205458) do
 
+  create_table "foursomes", force: :cascade do |t|
+    t.datetime "teeTime"
+  end
+
+  create_table "golfers", force: :cascade do |t|
+    t.string "initials"
+    t.integer "foursome_id"
+    t.index ["foursome_id"], name: "index_golfers_on_foursome_id"
+  end
+
+  add_foreign_key "golfers", "foursomes"
 end
