@@ -13,6 +13,12 @@ class CoursesController < ApplicationController
     render json: @course
   end
 
+  def holes
+    holes = Course.find(params[:id]).holes
+    render json: holes
+  end
+
+
   # POST /courses
   def create
     @course = Course.new(course_params)
