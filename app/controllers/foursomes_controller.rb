@@ -10,7 +10,8 @@ class FoursomesController < ApplicationController
 
   # GET /foursomes/1
   def show
-    render json: @foursome
+    
+    render json: {id: @foursome, teeTime: @foursome.teeTime, golfers: @foursome.golfers}
   end
 
   # POST /foursomes
