@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_06_205458) do
+ActiveRecord::Schema.define(version: 2020_12_06_210621) do
 
   create_table "foursomes", force: :cascade do |t|
     t.datetime "teeTime"
@@ -22,5 +22,15 @@ ActiveRecord::Schema.define(version: 2020_12_06_205458) do
     t.index ["foursome_id"], name: "index_golfers_on_foursome_id"
   end
 
+  create_table "wolf_games", force: :cascade do |t|
+    t.decimal "stakes"
+    t.integer "foursome_id", null: false
+    t.integer "course_id", null: false
+    t.index ["course_id"], name: "index_wolf_games_on_course_id"
+    t.index ["foursome_id"], name: "index_wolf_games_on_foursome_id"
+  end
+
   add_foreign_key "golfers", "foursomes"
+  add_foreign_key "wolf_games", "courses"
+  add_foreign_key "wolf_games", "foursomes"
 end

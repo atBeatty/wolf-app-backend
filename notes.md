@@ -2,7 +2,7 @@
 
 _teeTime_
 _stakes_ 
-_belongsTo_ golfer
+_belongsTo_ foursome
 _belongsTo_ course
 
 ### golfer
