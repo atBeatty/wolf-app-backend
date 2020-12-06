@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :foursomes
+  resources :wolf_games
   resources :courses
   resources :holes
   resources :golfers
