@@ -10,7 +10,9 @@ class WolfGamesController < ApplicationController
 
   # GET /wolf_games/1
   def show
-    render json: @wolf_game
+    scores = @wolf_game.scores
+    render json: {stakes: @wolf_game.stakes, holes: @wolf_game.course.holes, score: scores}
+    
   end
 
   # POST /wolf_games

@@ -10,13 +10,14 @@ class GolfersController < ApplicationController
 
   # GET /golfers/1
   def show
-    render json: @golfer
+    render json: {golfer: @golfer, courses: @golfer.courses}
+
   end
 
   # POST /golfers
   def create
     @golfer = Golfer.new(golfer_params)
-
+    
     if @golfer.save
       render json: @golfer, status: :created, location: @golfer
     else
