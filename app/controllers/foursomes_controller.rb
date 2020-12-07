@@ -47,6 +47,6 @@ class FoursomesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def foursome_params
-      params.require(:foursome).permit(:teeTime)
+      params.require(:foursome).permit(:teeTime, golfers_attributes: [:initials])
     end
 end
