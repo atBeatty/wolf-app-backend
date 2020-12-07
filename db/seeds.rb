@@ -42,16 +42,15 @@ Hole.create(number: 17, yards: 474, par: 5, score: rand(3..6), course_id: 2)
 Hole.create(number: 18, yards: 364, par: 4, score: rand(3..6), course_id: 2)
 
 
+Foursome.create!(teeTime: Time.new())
 
-2.times do
-    Foursome.create(teeTime: Time.new())
-end
+# 2.times do
+#     Foursome.create(teeTime: Time.new())
+# end
 
 4.times do 
     Golfer.create(initials: Faker::Name.initials, foursome_id: 1)
 end
 
-4.times do 
-    Golfer.create(initials: Faker::Name.initials, foursome_id: 2)
-end
+
 
