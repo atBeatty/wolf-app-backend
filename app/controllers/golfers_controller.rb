@@ -16,8 +16,9 @@ class GolfersController < ApplicationController
 
   # POST /golfers
   def create
+    binding.pry
     @golfer = Golfer.new(golfer_params)
-    
+
     if @golfer.save
       render json: @golfer, status: :created, location: @golfer
     else

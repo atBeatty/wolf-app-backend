@@ -5,7 +5,7 @@ class FoursomesController < ApplicationController
   def index
     @foursomes = Foursome.all
 
-    render json: @foursomes
+    render json: @foursomes.to_json(:include => :golfers)
   end
 
   # GET /foursomes/1
@@ -47,6 +47,6 @@ class FoursomesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def foursome_params
-      params.require(:foursome).permit(:teeTime, golfers_attributes: [:initials])
+      params.require(:foursome).permit(:teeTime, golfers_attributes: [:id, :initials, :foursome_id])
     end
 end
