@@ -48,6 +48,6 @@ class WolfGamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def wolf_game_params
-      params.require(:wolf_game).permit(:teeTime, :course_id, :golfer_id)
+      params.require(:wolf_game).permit(:stakes, :course_id, :foursome_id)
     end
 end

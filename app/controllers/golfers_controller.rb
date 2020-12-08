@@ -16,7 +16,6 @@ class GolfersController < ApplicationController
 
   # POST /golfers
   def create
-    binding.pry
     @golfer = Golfer.new(golfer_params)
 
     if @golfer.save
@@ -48,6 +47,6 @@ class GolfersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def golfer_params
-      params.require(:golfer).permit(:initials)
+      params.require(:golfer).permit(:initials, :foursome_id)
     end
 end

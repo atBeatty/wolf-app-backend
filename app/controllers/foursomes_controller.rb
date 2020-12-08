@@ -17,6 +17,8 @@ class FoursomesController < ApplicationController
   # POST /foursomes
   def create
     @foursome = Foursome.new(foursome_params)
+    
+    # binding.pry
 
     if @foursome.save
       render json: @foursome, status: :created, location: @foursome
