@@ -16,19 +16,13 @@ class FoursomesController < ApplicationController
 
   # POST /foursomes
   def create
-    @foursome = Foursome.new(foursome_params)
 
+    @foursome = Foursome.new(foursome_params)
+    binding.pry
     # CREATE GOLFER OJBECTS
     params[:golfers].each do |golfer|
       @foursome.golfers << Golfer.new(initials: golfer["initials"])
     end
-
-
-    # @foursome.golfers = foursome_params[:golfers_attributes]
-    
-    binding.pry
-    
-    # binding.pry
 
     if @foursome.save
       render json: @foursome, status: :created, location: @foursome

@@ -1,6 +1,7 @@
 
 Course.create(name: "Rose City GC")
 Course.create(name: "Heron Lakes")
+Course.create(name: "Pebble Beach")
 
 
 Hole.create(number: 1, yards: 346, par: 4, score: 3, course_id: 1)
@@ -40,6 +41,12 @@ Hole.create(number: 15, yards: 149, par: 3, score: rand(3..6), course_id: 2)
 Hole.create(number: 16, yards: 325, par: 4, score: rand(3..6), course_id: 2)
 Hole.create(number: 17, yards: 474, par: 5, score: rand(3..6), course_id: 2)
 Hole.create(number: 18, yards: 364, par: 4, score: rand(3..6), course_id: 2)
+
+counter = 1
+while counter < 19 do
+    Hole.create(number: counter, yards: rand(200-600), par: rand(3...5), course_id: 3)
+    counter += 1
+end
 
 
 # Foursome.create(teeTime: Time.new())

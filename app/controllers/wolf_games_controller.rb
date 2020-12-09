@@ -18,7 +18,7 @@ class WolfGamesController < ApplicationController
   # POST /wolf_games
   def create
     @wolf_game = WolfGame.new(wolf_game_params)
-
+    binding.pry
     if @wolf_game.save
       render json: @wolf_game, status: :created, location: @wolf_game
     else
