@@ -10,15 +10,15 @@ class WolfGamesController < ApplicationController
 
   # GET /wolf_games/1
   def show
-    scores = @wolf_game.scores
-    render json: {stakes: @wolf_game.stakes, holes: @wolf_game.course.holes, score: scores}
+    # binding.pry
+    # scores = @wolf_game.scores
+    render json: {stakes: @wolf_game.stakes, foursome: @wolf_game.foursome.golfers, holes: @wolf_game.course.holes}
     
   end
 
   # POST /wolf_games
   def create
     @wolf_game = WolfGame.new(wolf_game_params)
-    binding.pry
     if @wolf_game.save
       render json: @wolf_game, status: :created, location: @wolf_game
     else

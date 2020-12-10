@@ -5,6 +5,9 @@ class WolfGame < ApplicationRecord
   # has_many :holes, through: course
   # has_many :golfers, through: foursome
 
+  def scores
+    binding.pry
+  end
 
 
   

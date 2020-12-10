@@ -18,7 +18,6 @@ class FoursomesController < ApplicationController
   def create
 
     @foursome = Foursome.new(foursome_params)
-    binding.pry
     # CREATE GOLFER OJBECTS
     params[:golfers].each do |golfer|
       @foursome.golfers << Golfer.new(initials: golfer["initials"])
