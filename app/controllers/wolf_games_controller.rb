@@ -18,6 +18,7 @@ class WolfGamesController < ApplicationController
 
   # POST /wolf_games
   def create
+    binding.pry
     @wolf_game = WolfGame.new(wolf_game_params)
     if @wolf_game.save
       render json: @wolf_game, status: :created, location: @wolf_game
@@ -33,7 +34,7 @@ class WolfGamesController < ApplicationController
       hole = params[:hole].to_i
       @wolf_game.course.holes[hole - 1].score = strokesFromHole
       
-      binding.pry
+      # binding.pry
 
       @wolf_game.course.holes[hole -1].save
 
