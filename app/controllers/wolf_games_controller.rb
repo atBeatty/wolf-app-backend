@@ -32,10 +32,11 @@ class WolfGamesController < ApplicationController
       strokesFromHole = params[:scores].split(",").join().to_i
       hole = params[:hole].to_i
       @wolf_game.course.holes[hole - 1].score = strokesFromHole
+      
       binding.pry
-      # @wolf_game.save
-      @wolf_game.update()
-      binding.pry
+
+      @wolf_game.course.holes[hole -1].save
+
       render json: {id: @wolf_game.id, stakes: @wolf_game.stakes, foursome: @wolf_game.foursome.golfers, holes: @wolf_game.course.holes}
     
     else
