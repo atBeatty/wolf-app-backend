@@ -28,8 +28,16 @@ class WolfGamesController < ApplicationController
 
   # PATCH/PUT /wolf_games/1
   def update
-    if @wolf_game.update(wolf_game_params)
-      render json: @wolf_game
+    if params[:scores]
+      strokesFromHole = params[:scores].split(",").join().to_i
+      hole = params[:hole].to_i
+      @wolf_game.course.holes[hole - 1].score = strokesFromHole
+      binding.pry
+      # @wolf_game.save
+      @wolf_game.update()
+      binding.pry
+      render json: {id: @wolf_game.id, stakes: @wolf_game.stakes, foursome: @wolf_game.foursome.golfers, holes: @wolf_game.course.holes}
+    
     else
       render json: @wolf_game.errors, status: :unprocessable_entity
     end
@@ -48,6 +56,6 @@ class WolfGamesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def wolf_game_params
-      params.require(:wolf_game).permit(:stakes, :course_id, :foursome_id)
+      params.require(:wolf_game).permit(:stakes, :course_id, :foursome_id, :scores, :hole)
     end
 end
