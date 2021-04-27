@@ -1,6 +1,4 @@
-# wolf-app-frontend
+#WOLF - BACKEND
 
+This is the repository that holds the backend code for the Wolf Golf App I built. Please use [this link](https://github.com/atbeatty/wolf-app-frontend) to navigate to the frontend in a new tab.
 
- 
-* front end code
-* [Front end here](https://github.com/atbeatty/wolf-app-frontend)
